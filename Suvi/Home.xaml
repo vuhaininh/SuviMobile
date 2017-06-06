@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Suvi.Home" Title="Survey in Pocket">
+	<ContentPage Title="Home" Icon="home-7.png">
+		<ContentView>
+			<StackLayout VerticalOptions="CenterAndExpand" Padding="10, 10, 10, 10">
+				<StackLayout.Children>
+					<Label HorizontalOptions="CenterAndExpand" Text="Enter survey code:"></Label>
+					<Entry x:Name="SurveyCode">
+					</Entry>
+					<Button x:Name="Go" Clicked="OnGoButtonClicked" 
+					VerticalOptions="Center" HorizontalOptions="Center" Text="Go"></Button>
+					<ActivityIndicator Color="Red" IsRunning="false" x:Name="activityIndicator"/>
+				</StackLayout.Children>
+			</StackLayout>
+		</ContentView>
+	</ContentPage>
+
+	<ContentPage Title="Saved Survey" Icon="list-simple-7.png">
+		<ContentView>
+			<StackLayout>
+				<ListView x:Name="listView">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<TextCell Text="{Binding Name}"></TextCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+			</StackLayout>
+		</ContentView>
+	</ContentPage>
+</TabbedPage>

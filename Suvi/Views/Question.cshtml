@@ -1,0 +1,78 @@
+﻿@using Suvi.Data
+@using System.Collections.Generic
+@inherits System.Web.Mvc.WebViewPage<Suvi.Data.Question>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+  
+  <title>Survey in Pocket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="Content/bootstrap.min.css" />
+  <link rel="stylesheet" href="Content/font-awesome.min.css" />
+  <link rel="stylesheet" href="Content/application.css" />
+  <script src="Scripts/jquery-2.1.4.min.js" type="text/javascript" ></script>
+  <script src="Scripts/frontend.js" type="text/javascript" ></script>
+  <style>
+  	html{
+  		height: 100%;
+  	}
+  </style>
+  @if (ViewData.ContainsKey("CustomCss") && ViewData["CustomCss"] != null){
+
+  	foreach(var css in (List<string>)ViewData["CustomCss"]){
+  		 <link rel="stylesheet" href="@css" />
+  	}
+  }
+
+</head>
+<body>
+@Html.Partial("Suvi.Header, Suvi", Model)
+
+<main>
+<div class="container-fluid feedback-container">
+
+<article class="page question-page widget">
+  <div class="col-xs-12">
+    <div class="widget-extra">
+      @if(Model.QuestionType != QuestionType.Info)
+      {
+          <div class="question-title">
+            <div class="widget-content-light question-title-inside">
+              <p>@Model.QuestionText</p>
+            </div>
+          </div>
+          <div class="question-content">
+          	@switch(Model.QuestionType)
+          	{
+          		case QuestionType.StarRating:
+          			@Html.Partial("Suvi.StarRating, Suvi", Model)
+          			break;
+          		case QuestionType.SmileyFace:
+          			@Html.Partial("Suvi.SmileyFace, Suvi", Model)
+          			break;
+          		case QuestionType.Image:
+          			@Html.Partial("Suvi.Image, Suvi", Model)
+          			break;
+          		case QuestionType.TextInput:
+          			@Html.Partial("Suvi.TextInput, Suvi", Model)
+          			break;
+          		case QuestionType.MultipleChoice:
+          			@Html.Partial("Suvi.MultipleChoice, Suvi", Model)
+          			break;
+
+          	}
+          </div>
+      }
+      else{
+      	@Html.Partial("Suvi.Information, Suvi", Model)
+      }
+
+    </div>
+  </div>
+</article>
+</div>
+</main>
+</body>
+</html>
+

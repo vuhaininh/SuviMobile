@@ -1,0 +1,36 @@
+﻿@using Suvi.Data
+@inherits System.Web.Mvc.WebViewPage<Suvi.Data.Question>
+
+<div class="question-choices" data-col="1">
+
+@if(Model.AllowMultipleChoice)
+{
+	foreach (var choice in @Model.Choices) {
+		<span class="question-choice">
+	          <input class="input-checkbox" type="checkbox" value="@choice.Label" id="@(Model.ID + '-' + choice.ID)" name="question[@Model.Index]"/>
+	          <label class="btn" for="@(Model.ID + '-' + choice.ID)">@choice.Label</label>
+	        </span>
+	}
+}
+else
+{
+	foreach (var choice in @Model.Choices) {
+		<span class="question-choice">
+	          <input class="input-radio" type="radio" value="@choice.Label" id="@(Model.ID + '-' + choice.ID)" name="question[@Model.Index]"/>
+	          <label class="btn" for="@(Model.ID + '-' + choice.ID)">@choice.Label</label>
+	        </span>
+	}
+}
+
+</div>
+
+
+@if(Model.AllowMultipleChoice)
+{
+	<div class="question-message">
+	  <div class="message-action clearfix">
+	    <button type="button" class="btn btn-primary js-next">Next</button>
+	  </div>
+	</div>
+}
+		

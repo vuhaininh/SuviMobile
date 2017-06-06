@@ -1,0 +1,23 @@
+﻿@using MVCPolyfils
+@inherits System.Web.Mvc.WebViewPage<Suvi.Data.Feedback>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+  
+  <title>Survey in Pocket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="Content/bootstrap.min.css" />
+  <link rel="stylesheet" href="Content/font-awesome.min.css" />
+  
+</head>
+<body>
+
+	@Html.Partial("Suvi.Header, Suvi", null)
+	@Html.Partial("Suvi.Question, Suvi", new Suvi.Data.Question{
+		QuestionText = "This is a sample question", 
+		QuestionType = Suvi.Data.QuestionType.Image 
+	})
+    @Html.Partial("Suvi.Footer, Suvi", null)
+</body>
+</html>

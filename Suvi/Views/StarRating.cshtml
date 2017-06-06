@@ -1,0 +1,12 @@
+﻿@using Suvi.Data
+@inherits System.Web.Mvc.WebViewPage<Suvi.Data.Question>
+
+<div class="question-rating">
+  <span class="question-stars">
+    @for(var i=5; i>0; i--)
+    {
+    	<input class="star-radio" type="radio" value="@i" id="@(Model.ID + '-' + i)" name="question[@Model.Index]">
+    	<label class="star" for="@(Model.ID + '-' + i)">@i</label>
+  }
+  </span>
+</div>

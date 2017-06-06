@@ -1,0 +1,25 @@
+﻿@using Suvi.Data
+@using System.Collections.Generic
+@inherits System.Web.Mvc.WebViewPage<Suvi.Data.Question>
+
+<header class="global-header">
+  <div class="container-fluid clearfix title-bar">
+	<div class = "col-xs-2 logo-container">
+		
+	</div>	
+    <nav class="header-nav col-xs-10">
+      <div class="header-link active survey-name">
+      	@if(Model != null &&  Model.Survey != null){
+        	<span>@Model.Survey.Name</span>
+        }
+      </div>
+	          
+        <strong><span class="text question-order" id="order"></span></strong>
+    </nav>
+  </div>
+
+</header>
+<div class="feedback-progress clearfix">
+  <div class="svipk-progress pull-left"></div>
+</div>
+

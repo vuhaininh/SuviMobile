@@ -1,0 +1,17 @@
+﻿@using Suvi.Data
+@inherits System.Web.Mvc.WebViewPage<Suvi.Data.Question>
+
+<div class="question-smiley-faces">
+  <span class="question-faces">
+        @for(var i=1; i<=4; i++)
+        {
+	        <div class = "col-xs-3 smiley-block">
+	            <label class="smiley-face" for="@(Model.ID + '-' + i)">
+	              <input class="smiley-radio" type="radio" value="@i" id="@(Model.ID + '-' + i)" name="question[@Model.Index]">
+	              <img src='@("Content/Images/SmileyFaces/" + i + ".png")'/>
+	            </label>
+	        </div>
+        }
+  </span>
+</div>
+

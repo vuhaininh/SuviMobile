@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{EA0CD1B1-8886-4F8F-9981-F2255DF9FD59}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Suvi</RootNamespace>
+    <AssemblyName>Suvi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <ReleaseVersion>0.2</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Suvi.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Survey.cs" />
+    <Compile Include="Data\Question.cs" />
+    <Compile Include="Data\QuestionType.cs" />
+    <Compile Include="Data\Choice.cs" />
+    <Compile Include="Data\SuviDatabase.cs" />
+    <Compile Include="Data\Answer.cs" />
+    <Compile Include="Data\Feedback.cs" />
+    <Compile Include="Views\Header.cs">
+      <DependentUpon>Header.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Footer.cs">
+      <DependentUpon>Footer.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Question.cs">
+      <DependentUpon>Question.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StarRating.cs">
+      <DependentUpon>StarRating.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TextInput.cs">
+      <DependentUpon>TextInput.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SmileyFace.cs">
+      <DependentUpon>SmileyFace.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultipleChoice.cs">
+      <DependentUpon>MultipleChoice.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Information.cs">
+      <DependentUpon>Information.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Image.cs">
+      <DependentUpon>Image.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Survey.xaml.cs">
+      <DependentUpon>Survey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyWebView.cs" />
+    <Compile Include="SurveyQuestion.xaml.cs">
+      <DependentUpon>SurveyQuestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IThemeManager.cs" />
+    <Compile Include="ISurveyDownloader.cs" />
+    <Compile Include="Views\Feedback %28copy%29.cs">
+      <DependentUpon>Feedback.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Complete.cs">
+      <DependentUpon>Complete.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="ThankyouPage.xaml.cs">
+      <DependentUpon>ThankyouPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="INetworkManager.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="INavigationBarManager.cs" />
+    <Compile Include="IBaseUrl.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <ItemGroup>
+    <Reference Include="SQLite">
+      <HintPath>..\Components\sqlite-net-1.0.8.3\lib\ios-unified\SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Ioc">
+      <HintPath>..\packages\XLabs.IoC.2.0.5679\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10\XLabs.Ioc.dll</HintPath>
+    </Reference>
+    <Reference Include="ExifLib">
+      <HintPath>..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Core">
+      <HintPath>..\packages\XLabs.Core.2.0.5679\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Platform">
+      <HintPath>..\packages\XLabs.Platform.2.0.5679\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Serialization">
+      <HintPath>..\packages\XLabs.Serialization.2.0.5679\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Forms">
+      <HintPath>..\packages\XLabs.Forms.2.0.5679\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Serialization.JsonNET">
+      <HintPath>..\packages\XLabs.Serialization.JSON.2.0.5679\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Serialization.JsonNET.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.1.4.4.6392\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.1.4.4.6392\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.1.4.4.6392\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Views\Feedback.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>Feedback.cs</LastGenOutput>
+    </None>
+    <None Include="Views\Header.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>Header.cs</LastGenOutput>
+    </None>
+    <None Include="Views\Footer.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>Footer.cs</LastGenOutput>
+    </None>
+    <None Include="Views\Question.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>Question.cs</LastGenOutput>
+    </None>
+    <None Include="Views\StarRating.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>StarRating.cs</LastGenOutput>
+    </None>
+    <None Include="Views\TextInput.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>TextInput.cs</LastGenOutput>
+    </None>
+    <None Include="Views\SmileyFace.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>SmileyFace.cs</LastGenOutput>
+    </None>
+    <None Include="Views\MultipleChoice.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>MultipleChoice.cs</LastGenOutput>
+    </None>
+    <None Include="Views\Information.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>Information.cs</LastGenOutput>
+    </None>
+    <None Include="Views\Image.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>Image.cs</LastGenOutput>
+    </None>
+    <None Include="Views\Complete.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>Complete.cs</LastGenOutput>
+    </None>
+    <None Include="Content\bootstrap-theme.css" />
+    <None Include="Content\bootstrap-theme.css.map" />
+    <None Include="Content\bootstrap-theme.min.css" />
+    <None Include="Content\bootstrap.css" />
+    <None Include="Content\bootstrap.css.map" />
+    <None Include="Content\bootstrap.min.css" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.svg" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Scripts\bootstrap.js" />
+    <None Include="Scripts\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Home.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Survey.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SurveyQuestion.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThankyouPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MVCPolyfils\MVCPolyfils.csproj">
+      <Project>{B31E5CF3-7738-42D6-ACA7-F519621C305E}</Project>
+      <Name>MVCPolyfils</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

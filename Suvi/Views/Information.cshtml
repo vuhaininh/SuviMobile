@@ -1,0 +1,15 @@
+﻿@using Suvi.Data
+@inherits System.Web.Mvc.WebViewPage<Suvi.Data.Question>
+
+<div class="info-page question-title">
+  <div class="widget-content-light question-title-inside">
+    <p>@Model.QuestionText</p>
+  </div>
+</div>
+<div class="question-content">
+  <div class="question-message">
+    <div class="message-action clearfix">
+      <button type="button" class="btn btn-primary js-next">Next</button>
+    </div>
+  </div>
+</div>
